@@ -57,8 +57,8 @@ public class MagicScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             currSpell = ultAtk;
-            leftHandParticle.startColor = Color.magenta;
-            rightHandParticle.startColor = Color.magenta;
+            leftHandParticle.startColor = Color.Lerp(Color.blue, Color.magenta, .3f);
+            rightHandParticle.startColor = Color.Lerp(Color.blue,Color.magenta,.3f);
         }
        
     }

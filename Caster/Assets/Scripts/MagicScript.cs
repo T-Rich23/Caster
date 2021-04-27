@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MagicScript : MonoBehaviour
 {
-    
+    public static MagicScript mS;
    [SerializeField]
     public Transform handEnd;
     public GameObject baseAtk;
@@ -19,11 +19,13 @@ public class MagicScript : MonoBehaviour
     public float nextCast;
     GameObject currSpell;
     Animator anim;
+    public int atkDmg;
    
-    public int destroyTime = 3;
+    public int destroyTime = 2;
     // Start is called before the first frame update
     void Awake()
     {
+        mS = this;
         leftHandParticle = leftHand.GetComponent<ParticleSystem>().main;
         rightHandParticle = rightHand.GetComponent<ParticleSystem>().main;
         anim = GetComponent<Animator>();
@@ -38,30 +40,38 @@ public class MagicScript : MonoBehaviour
         CastTime();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            anim.SetBool("IsSwitch", true);
             currSpell = baseAtk;
             leftHandParticle.startColor = Color.red;
             rightHandParticle.startColor = Color.red;
+            Invoke("Change", .5f);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            anim.SetBool("IsSwitch", true);
             currSpell = midAtk;
             leftHandParticle.startColor = Color.blue;
             rightHandParticle.startColor = Color.blue;
+            Invoke("Change", .5f);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            anim.SetBool("IsSwitch", true);
             currSpell = heavyAtk;
             leftHandParticle.startColor = Color.cyan;
             rightHandParticle.startColor = Color.cyan;
+            Invoke("Change", .5f);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
+            anim.SetBool("IsSwitch", true);
             currSpell = ultAtk;
             leftHandParticle.startColor = Color.Lerp(Color.blue, Color.magenta, .3f);
             rightHandParticle.startColor = Color.Lerp(Color.blue,Color.magenta,.3f);
+            Invoke("Change", .5f);
         }
        
     }
@@ -88,20 +98,27 @@ public class MagicScript : MonoBehaviour
     {
         if (currSpell == baseAtk)
         {
+            atkDmg = 12;
             castTime = .20f;
         }
         if (currSpell == midAtk)
         {
+            atkDmg = 20;
             castTime = .60f;
         }
         if (currSpell == heavyAtk)
         {
+            atkDmg = 32;
             castTime = 1f;
         }
         if (currSpell == ultAtk)
         {
-            castTime = 1.4f;
+            atkDmg = 50;
+            castTime = 2f;
         }
     }
-
+    public void Change()
+    {
+        anim.SetBool("IsSwitch", false);
+    }
 }

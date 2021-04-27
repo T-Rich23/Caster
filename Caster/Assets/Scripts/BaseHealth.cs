@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseHealth : MonoBehaviour
 {
+    public static BaseHealth bH;
     [SerializeField]
     public int maxHealth;
     public int currentHealth;
@@ -12,6 +13,7 @@ public class BaseHealth : MonoBehaviour
 
     void Start()
     {
+        bH = this;
         currentHealth = maxHealth;
     }
 
@@ -35,6 +37,10 @@ public class BaseHealth : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
+        }
+        else if (gameObject.CompareTag("Enemy")&& currentHealth == 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

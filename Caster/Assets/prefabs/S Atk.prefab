@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 4455448682032136384}
   - component: {fileID: 6361625177788565354}
   - component: {fileID: 4576042346198083004}
+  - component: {fileID: -5503883738929902903}
   m_Layer: 0
   m_Name: S Atk
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +109,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3520973718808971801}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4835,6 +4836,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-5503883738929902903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520973718808971801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c91575d977527741ada3598661ea517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6400142852564564667
 GameObject:
   m_ObjectHideFlags: 0

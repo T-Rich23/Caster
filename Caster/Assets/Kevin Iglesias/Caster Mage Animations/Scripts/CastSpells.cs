@@ -59,9 +59,9 @@ namespace KevinIglesias{
             yield return new WaitForSeconds(delay);
            
             GameObject newFireball = Instantiate(spellPrefab, handT.position, Quaternion.identity);
-            
-            newFireball.transform.rotation *= Quaternion.Euler(0,180f,0);
-            
+
+            newFireball.transform.rotation *= Quaternion.Euler(0, 180f, 0);
+
             newFireball.transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
             newFireball.transform.localPosition = new Vector3(newFireball.transform.localPosition.x, newFireball.transform.localPosition.y, newFireball.transform.localPosition.z+spellOffset);
 

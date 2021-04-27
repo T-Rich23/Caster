@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MagicScript : MonoBehaviour
 {
+    
    [SerializeField]
     public Transform handEnd;
     public GameObject baseAtk;
@@ -17,6 +18,7 @@ public class MagicScript : MonoBehaviour
     public float castTime;
     public float nextCast;
     GameObject currSpell;
+    Animator anim;
    
     public int destroyTime = 3;
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class MagicScript : MonoBehaviour
     {
         leftHandParticle = leftHand.GetComponent<ParticleSystem>().main;
         rightHandParticle = rightHand.GetComponent<ParticleSystem>().main;
+        anim = GetComponent<Animator>();
         currSpell = baseAtk;
         canShoot = true;
     }
@@ -69,10 +72,15 @@ public class MagicScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) && canShoot)
             {
+                anim.SetBool("IsAttacking", true);
                 GameObject bullet = Instantiate(currSpell, handEnd.position, handEnd.rotation);
                 bullet.GetComponent<Rigidbody>().AddForce(handEnd.forward * 200, ForceMode.Impulse);
                 Destroy(bullet, destroyTime);
                 nextCast = Time.time + castTime;
+            }
+            else
+            {
+                anim.SetBool("IsAttacking", false);
             }
         }
     }

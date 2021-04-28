@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            EnemyHealth.eH.ApplyDamage(MagicScript.mS.atkDmg);
             Explode();
         }
         else
@@ -29,7 +30,6 @@ public class Bullet : MonoBehaviour
             if (colliders[i].CompareTag("Enemy"))
             {
                 Debug.Log(colliders[i].name);
-                EnemyHealth.eH.ApplyDamage(MagicScript.mS.atkDmg);
                 Destroy(gameObject);
             }
         }

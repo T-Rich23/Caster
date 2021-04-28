@@ -35,12 +35,10 @@ public class BaseHealth : MonoBehaviour
             }
             else
             {
+                GameManager.Instance._coins += 50;
                 gameObject.SetActive(false);
             }
         }
-        else if (gameObject.CompareTag("Enemy")&& currentHealth == 0)
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }

@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         _coins = 50;
+
     }
 
 }

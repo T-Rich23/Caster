@@ -36,7 +36,7 @@ public class BaseHealth : MonoBehaviour
             else
             {
                 GameManager.Instance._coins += 50;
-                gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
         

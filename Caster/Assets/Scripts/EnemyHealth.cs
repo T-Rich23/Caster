@@ -11,4 +11,12 @@ public class EnemyHealth : BaseHealth
         maxHealth = 50;
         currentHealth = maxHealth;
     }
+    public void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            GameManager.Instance._coins += 50;
+            Destroy(gameObject);
+        }
+    }
 }

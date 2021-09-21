@@ -33,11 +33,11 @@ public class BaseHealth : MonoBehaviour
                 transform.position = respawnMarker.position;
                 currentHealth = maxHealth;
             }
-            else
-            {
-                GameManager.Instance._coins += 50;
-                Destroy(gameObject);
-            }
+            //else
+            //{
+            //    GameManager.Instance._coins += 50;
+            //    Destroy(gameObject);
+            //}
         }
         
     }
